@@ -3,6 +3,7 @@ var PropTypes = require('prop-types');
 var api = require('../utils/api');
 
 function RepoGrid(props){
+  console.log("props inside grid", props);
   return(
     <ul className = 'popular-list'>
       {props.repos.map(function(repo, index){
@@ -34,6 +35,7 @@ RepoGrid.propTypes = {
 
 function SelectLanguage(props){
   var languages = ['All', 'JavaScript', 'Ruby', 'Java', 'CSS', 'Python'];
+    console.log("props", props);
     return (
       < ul className = 'languages' >
       {languages.map(function(lang) {
@@ -76,14 +78,17 @@ class Popular extends React.Component{
 
   updateLanguage(lang){
     this.setState(function(){
+      console.log("this.state", this.state);
       return{
         selectedLanguage: lang,
         repos: null
       }
+
     });
     api.fetchPopularRepos(lang)
     .then(function(repos){
       this.setState(function(){
+
         return{
           repos:repos
         }
