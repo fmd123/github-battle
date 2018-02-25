@@ -7,6 +7,10 @@ body {
   margin: 0 auto;
 }
 
+.row {
+  display: flex;
+  justify-content: space-around;
+}
 a {
   text-decoration: none;
   color: #d0021b;
